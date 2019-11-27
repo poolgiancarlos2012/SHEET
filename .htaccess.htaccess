@@ -1,0 +1,36 @@
+## ======= FUENTE DE https://stackoverflow.com/questions/28154324/codeigniter-get-css-js-404-not-found
+
+# <IfModule mod_rewrite.c>
+# RewriteEngine On
+# RewriteBase /
+
+## Removes index.php from ExpressionEngine URLs
+
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^(.*)$ index.php?/$1 [L]
+
+# </IfModule>
+
+# <IfModule !mod_rewrite.c>
+# ErrorDocument 404 /index.php
+# </IfModule>
+
+## ======= FUENTES DE CESAR CANSINO =======
+
+## Customized error messages.
+ ErrorDocument 404 /index.php
+
+## Set the default handler.
+ DirectoryIndex index.php
+
+# AddType text/plain .htm .html .shtml
+# Aplicación AddType / x-httpd-php .php text/plain .htm .html AddHandler x-httpd-php .php text/plain .htm .html
+
+## Various rewrite rules.
+ <IfModule mod_rewrite.c>
+ RewriteEngine on
+ RewriteCond %{REQUEST_FILENAME} !-f
+ RewriteCond %{REQUEST_FILENAME} !-d
+ RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
+ </IfModule>
